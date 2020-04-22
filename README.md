@@ -1,5 +1,5 @@
 # top10_aci_faults
-## A script that generates a CSV file from a JSON file gathered from a Cisco ACI APIC.
+## A script that generates a CSV file from a JSON file gathered from a Cisco APIC.
 
 This script will generate a CSV file with the following structure:
 `fault, count, severity, description`
