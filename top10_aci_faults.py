@@ -1,20 +1,11 @@
 import sys
 import argparse
 import collections
-from utilities.timestamp import timestamp
-from utilities.sortTuple import sortTuple
-from utilities.aciFaultDisect import aciFaultDisect
+from utilities.tools import timestamp, sortTuple, aciFaultDisect
 
 parser = argparse.ArgumentParser(usage="python %(prog)s [-h] infile [--count {X}] [--all] [--output {filename}]",
                                  formatter_class=argparse.RawDescriptionHelpFormatter,
-                                 description=(
-                                     """
-+-----------------------------------------------------------------------------------------+
-|    This script provides a list of the top 10 faults (by default) in the ACI fabric.     |
-|    The number of faults to be shown can be changed with the '--count' or '--all'        |
-|    arguments.  If both arguments are provided '--all' will be preferred.                   |
-+-----------------------------------------------------------------------------------------+
-"""))
+                                 description=("Generates a CSV file with a list of ACI faults from a provided JSON file."))
 parser.add_argument("infile", nargs="?", type=argparse.FileType("r"), default=sys.stdin,
                     help="JSON file generated from the APIC with the command: 'moquery -c fault.Inst -o json'")
 parser.add_argument("--count", type=int, default=10, metavar="X", nargs="?",
