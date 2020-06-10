@@ -4,8 +4,9 @@ import argparse
 import collections
 import re
 import sys
+from datetime import datetime
 from os import getcwd
-from utilities.tools import aciFaultDisect, sortTuple, timestamp
+from utilities.tools import aciFaultDisect, sortTuple
 
 
 def get_parser():
@@ -73,7 +74,8 @@ def create_csv(dictionary, new_filename):
 
 
 def outfile_name(argv_output):
-    default = f"aci_faults_{timestamp()}.csv"
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    default = f"aci_faults_{timestamp}.csv"
     return argv_output or default
 
 
@@ -98,4 +100,5 @@ def main():
     pass
 
 
-main()
+if __name__ == '__main__':
+    main()
