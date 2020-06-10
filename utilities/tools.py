@@ -2,18 +2,6 @@ import time
 import json
 
 
-def timestamp():
-    """
-    This is a short function definition that will provide timestamp
-    in the form of a string with the format: 'yyyy.mm.dd_hh.mm.ss'.
-    """
-    now = time.localtime()
-    try:
-        stamp = str(f'{now.tm_year}.{now.tm_mon}.{now.tm_mday}'
-                        f'_{now.tm_hour}.{now.tm_min}.{now.tm_sec}')
-    return stamp
-
-
 def aciFaultDisect(infile):
     """This function expects an ACI fault file in JSON format and will return a list of tuples with the
     (fault_code, fault_severity, fault_description"""
