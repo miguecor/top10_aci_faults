@@ -5,7 +5,7 @@ This script will generate a CSV file with the following structure:
 `fault, count, severity, description`
 
 The output file will be put in the same folder as the script. By default, the output file will be named:
-`aci_faults_<aaaa.mm.dd_hh.mm.ss>.csv` or you can specify a name for the CSV file with the `--outfile` argument.
+`aci_faults_<yyyy.mm.dd_hh.mm.ss>.csv` or you can specify a name for the CSV file with the `--outfile` argument.
 
 ### JSON FILE
 To obtain the JSON file necessary to run this script you need to be connected to the Cisco APIC either via CLI or GUI.
