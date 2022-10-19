@@ -1,3 +1,4 @@
+import sys
 import time
 import json
 
@@ -9,6 +10,10 @@ def aciFaultDisect(infile):
         with open(infile, "r") as file:
             data = json.load(file)
         imdata = data["imdata"]
+        if len(imdata) == 0:
+            print("\nThe file %s does not contain any faults." % infile)
+            input("\nHit Enter to end script. ")
+            sys.exit(0)
         item_key = list(imdata[0].keys())
         attributes = [item[item_key[0]]["attributes"] for item in imdata]
         code_list = [tuple([item["code"], item["severity"], item["descr"]]) for item in attributes]
